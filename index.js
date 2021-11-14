@@ -6,12 +6,18 @@ let user = {
   email: 'n@none'
 }
 
+const aAny = (a, z) => a.some( x => x==z )
+
 const getUser = async () => {
   const response = await fetch("/.auth/me").catch( err => {
     console.log('caught error')
   })
   const payload = await response.json()
   const { clientPrincipal } = payload
+
+  const isEditor = cp => aAny(cp.userRoles,'editor')
+  console.log(`cp userDetails: ${clientPrincipal.userDetails} isEditor:${isEditor}`)
+  console.dir(clientPrincipal)
 
   this.user = clientPrincipal
 }
