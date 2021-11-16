@@ -17,7 +17,7 @@ const getUser = async () => {
   const { clientPrincipal } = payload
 
   if (clientPrincipal) {
-    console.log(`cp userDetails: ${clientPrincipal.userDetails} isEditor:${isEditor}`)
+    console.log(`cp userDetails: ${clientPrincipal.userDetails} isEditor:${isEditor(clientPrincipal)}`)
     console.dir(clientPrincipal)
     const el = document.getElementById("hw")
     el.innerHTML = `auth roles: ${clientPrincipal.userRoles.join(', ')}`
@@ -29,7 +29,7 @@ const envVal = (s) => ((typeof(process)!='undefined') && process.env[s] || `env[
 
 const main = async () => {
   const el = document.getElementById("hw")
-  el.innerHTML = 'from index.js'
+  el.innerHTML = 'no auth yet'
 
   console.log(`checking env: ${envVal('AZWA1_SOMETHING')}`)
 
