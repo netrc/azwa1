@@ -1,0 +1,16 @@
+{
+  "routes": [
+      {
+          "route": "/private",
+          "allowedRoles": [ "authenticated" ]
+      },
+      {
+          "route": "/private/a",
+          "allowedRoles": [ "authenticated", "aReader" ]
+      },
+      {
+          "route": "/private/z",
+          "allowedRoles": [ "authenticated", "zReader" ]
+      }
+  ]
+}
