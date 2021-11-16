@@ -16,7 +16,7 @@ const getUser = async () => {
   const payload = await response.json()
   const { clientPrincipal } = payload
 
-  if (cp) {
+  if (clientPrincipal) {
     console.log(`cp userDetails: ${clientPrincipal.userDetails} isEditor:${isEditor}`)
     console.dir(clientPrincipal)
     const el = document.getElementById("hw")
