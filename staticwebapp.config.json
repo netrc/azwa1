@@ -1,16 +1,19 @@
 {
   "routes": [
-      {
-          "route": "/private/a/*",
-          "allowedRoles": [ "aReader" ]
-      },
-      {
-          "route": "/private/z/*",
-          "allowedRoles": [ "zReader" ]
-      },
-      {
+    {
+      "route": "/private/a/*",
+      "allowedRoles": [ "aReader" ]
+    }, {
+      "route": "/private/z/*",
+      "allowedRoles": [ "zReader" ]
+    }, {
         "route": "/private/*",
         "allowedRoles": [ "authenticated" ]
     }
-]
+  ],
+  "responseOverrides": {
+    "401": {
+      "rewrite": "/custom-401.html"
+    }
+  }
 }
