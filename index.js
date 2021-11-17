@@ -24,6 +24,18 @@ const getUser = async () => {
   }
   this.user = clientPrincipal
 }
+const getUuid = async () => {
+  const UUIDURL = "https://httpbin.org/uuid"
+  const response = await fetch(UUIDURL).catch( err => {
+    console.log('caught error')
+  })
+  const payload = await response.json()
+console.dir(payload)
+  const { uuid } = payload
+console.dir(uuid)
+  const el = document.getElementById("uuid")
+  el.innerHTML = `uuid : ${uuid}`
+}
 
 const envVal = (s) => ((typeof(process)!='undefined') && process.env[s] || `env[${s}] not defined`)
 
@@ -35,6 +47,7 @@ const main = async () => {
 
   getUser()
   
+  getUuid()
 }
 
 main()
